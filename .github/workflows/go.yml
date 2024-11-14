@@ -50,7 +50,7 @@ jobs:
       - name: Notify deployment update
         if: success()
         run: |
-          curl -X PUT "http://api.tmp.computesphere.com/api/v1/${{ env.DEPLOYMENT_ID }}/update-image" \
+          curl -X PUT "http://api.tmp.computesphere.com/api/v1/deployments/${{ env.DEPLOYMENT_ID }}/update-image" \
             -H "Content-Type: application/json" \
             -H "x-user-token: ${{ env.API_TOKEN }}" \
             -d "{\"image\":\"docker.io/${{ env.DOCKER_URL }}\",\"tag\":\"${{ steps.get_sha.outputs.sha }}\"}"
